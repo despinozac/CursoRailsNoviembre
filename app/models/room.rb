@@ -1,6 +1,6 @@
 class Room < ActiveRecord::Base
 
-  has_many :reservations
+  has_many :reservations, dependent: :destroy #destroy o nullify
 
   validates :max_people, presence: true, 
     numericality: {greater_than: 0, less_thanan: 11, only_integer: true, message: "El salon debe tener entre 1 y 10 estudiantes"}
