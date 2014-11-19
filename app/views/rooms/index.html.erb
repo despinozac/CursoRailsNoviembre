@@ -1,0 +1,29 @@
+<h2>Listing Rooms: </h2>
+
+<table border="1">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Location</th>
+      <th>Max People</th>
+      <th>Actions</th>
+    </tr>
+    <tbody>
+      <% @rooms.each do |room|%>    
+      <tr>
+        <td><%= room.name %></td>
+        <td><%= room.description %></td>
+        <td><%= room.location %></td>
+        <td><%= room.max_people %></td>
+        <td>
+          <%= link_to "Editar", edit_room_path(room) %>
+          <%= link_to "Eliminar", room_path(room), method: :delete %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </thead>
+</table>
+<br/>
+<%= link_to "Create Room", new_room_path %>

@@ -1,0 +1,10 @@
+<%= simple_form_for @room do |f| %>
+  <%= f.input :name, label: "Nombre: " %>
+  <%= f.input :description, label: "Descripcion: " %>
+  <%= f.input :location, label: "Ubicacion: " %>
+  <% if @room.new_record?   %>
+    <%= f.input :max_people, label: "Capacidad Maxima: ", as: :string %>
+  <% end %>
+  <br/>
+  <%= f.button :submit %>
+<% end %>

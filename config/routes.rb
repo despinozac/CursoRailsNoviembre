@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  
+  #get 'rooms/index' la ruta es localhost:3000/rooms/index
+
+  #get 'rooms' => 'rooms#index'
+
+  resources :rooms
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
