@@ -1,0 +1,10 @@
+<%= simple_form_for @reservation do |f| %>
+  <%= f.input :reservation_date, as: :string %>
+  <%= f.input :description %>
+  <%= f.input :from %>
+  <%= f.input :to %>
+  <%= f.input :people_number %>
+  <%= f.association :room %>
+  <br/><br/>
+  <%= f.button :submit%>
+<% end %>

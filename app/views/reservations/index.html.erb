@@ -1,0 +1,19 @@
+<h1>Reservaciones: </h1>
+
+<table border="1">
+  <thead>
+    <tr>
+      <th>Nombre Sala</th>
+      <th>Fecha</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @reservations.each do |reservation| %>
+      <tr>
+        <td><%= reservation.room.name %></td>
+        <td><%= reservation.reservation_date %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

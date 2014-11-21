@@ -4,6 +4,10 @@ class RoomsController < ApplicationController
    @rooms = Room.all
   end
 
+  def show
+    @room = Room.find(params[:id])
+  end
+
   def new
     @room = Room.new
   end
@@ -12,7 +16,7 @@ class RoomsController < ApplicationController
     @room = Room.new(params_permit)
 
     if @room.save
-      redirect_to rooms_path
+      redirect_to rooms_path, notice: "El room fue creado correctamente"
     else
       render 'new'
     end 
@@ -33,6 +37,17 @@ class RoomsController < ApplicationController
   end
   def destroy
     @room = Room.find(params[:id])
+
+    if @room.destroy
+      redirect_to rooms_path
+    else
+      redirect_to room_path(room)
+    end
+  end
+
+  def top
+    @rooms = Room.joins(:reservations).select("name, count(name) as cuenta")
+      .group("name").order("cuenta desc")
   end
 
   private

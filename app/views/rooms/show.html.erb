@@ -1,0 +1,27 @@
+<h1>Sala : <%= @room.name %></h1>
+
+<h3>Capacidad Maxima: <%= @room.name %></h3>
+
+<table border="1">
+  <thead>
+    <tr>
+      <th>Fecha</th>
+      <th>Desde</th>
+      <th>Hasta</th>
+      <th>Descripcion</th>
+      <th>Num Personas</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @room.reservations.each do |reservation| %>
+    <tr>
+      <td><%= reservation.reservation_date %></td>
+      <td><%= reservation.from %></td>
+      <td><%= reservation.to %></td>
+      <td><%= reservation.description %></td>
+      <td><%= reservation.people_number %></td>
+      td
+    </tr>
+    <% end %>
+  </tbody>
+</table>

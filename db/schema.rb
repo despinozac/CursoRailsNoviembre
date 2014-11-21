@@ -11,10 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141119003326) do
+ActiveRecord::Schema.define(version: 20141120232322) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "attenders", id: false, force: true do |t|
+    t.integer  "user_id"
+    t.integer  "reservation_id"
+    t.string   "type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "attenders", ["user_id", "reservation_id"], name: "index_attenders_on_user_id_and_reservation_id", using: :btree
 
   create_table "reservations", force: true do |t|
     t.date     "reservation_date"
