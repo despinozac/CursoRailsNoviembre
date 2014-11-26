@@ -17,6 +17,20 @@ class ReservationsController < ApplicationController
     end
   end
 
+  def attenders
+    @reservation = Reservation.find(params[:id])
+  end
+
+  def add_attenders
+    
+    params[:reservation][:student_ids].shift
+    users = User.find(params[:reservation][:student_ids])
+    reservation = Reservation.find(params[:id]) 
+
+    reservation.students << users
+
+    redirect_to reservations_path     
+  end
   private
 
   def params_permit

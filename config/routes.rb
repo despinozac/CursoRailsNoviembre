@@ -8,6 +8,11 @@ Rails.application.routes.draw do
       get 'top'
     end
   end
-
-  resources :reservations
+  resources :users
+  resources :reservations do
+    member do
+      get 'attenders'
+      post 'add_attenders' 
+    end
+  end
 end

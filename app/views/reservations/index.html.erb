@@ -5,6 +5,9 @@
     <tr>
       <th>Nombre Sala</th>
       <th>Fecha</th>
+      <th>Desde</th>
+      <th>Hasta</th>
+      <th>Agregar Participantes</th>
     </tr>
   </thead>
 
@@ -13,6 +16,9 @@
       <tr>
         <td><%= reservation.room.name %></td>
         <td><%= reservation.reservation_date %></td>
+        <td><%= reservation.from %></td>
+        <td><%= reservation.to %></td>
+        <td><%= link_to "Agregar Participantes", attenders_reservation_path(reservation) %></td>
       </tr>
     <% end %>
   </tbody>

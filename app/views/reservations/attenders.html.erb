@@ -1,0 +1,4 @@
+<%= simple_form_for @reservation, url: add_attenders_reservation_path(@reservation), method: :post do |f| %>
+  <%= f.association :students %>
+  <%= f.button :submit %>
+<% end  %>
